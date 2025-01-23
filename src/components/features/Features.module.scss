@@ -1,0 +1,25 @@
+@use "../../styles/abstracts/variables" as vars;
+@forward "../../styles/base/animations";
+@forward "../../styles/components/button";
+@forward "../../styles/base/typography";
+@forward "../../styles/layout/grid";
+@forward "../../styles/components/composition";
+@forward "../../styles/components/feature-box";
+
+.section_features {
+  margin-top: -10rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(vars.$color-primary-light, 0.8),
+      rgba(vars.$color-primary-dark, 0.8)
+    ),
+    url("../../../public/assets/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-8deg);
+
+  // means all the direct child of the section features are selected
+  & > * {
+    transform: skewY(8deg);
+  }
+}

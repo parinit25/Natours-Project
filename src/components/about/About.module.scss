@@ -1,0 +1,12 @@
+@use "../../styles/abstracts/variables" as vars;
+@forward "../../styles/base/animations";
+@forward "../../styles/components/button";
+@forward "../../styles/base/typography";
+@forward "../../styles/layout/grid";
+@forward "../../styles/components/composition";
+
+.section_about {
+  background-color: vars.$color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}

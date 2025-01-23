@@ -1,0 +1,92 @@
+@use "../abstracts/variables" as vars;
+
+.btn {
+  &:link,
+  &:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: vars.$default-font-size;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(vars.$color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(vars.$color-black, 0.2);
+  }
+
+  &White {
+    background-color: vars.$color-white;
+    color: vars.$color-grey-dark;
+
+    &::after {
+      background-color: vars.$color-white;
+    }
+  }
+  &Green {
+    background-color: vars.$color-primary;
+    color: vars.$color-white;
+
+    &::after {
+      background-color: vars.$color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &Animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards; /*It will apply the properties of the 0% before the animation starts so the button is 
+      not visible in the start */
+    /* animation-delay: 0.75s; */
+  }
+}
+
+.button_text {
+  &:link,
+  &:visited {
+    font-size: vars.$default-font-size;
+    color: vars.$color-white;
+    background-color: vars.$color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid vars.$color-primary;
+    padding: 1rem 2rem;
+    transition: all 0.3s;
+    border-radius: 100px;
+  }
+  &:hover {
+    background-color: vars.$color-primary-dark;
+    color: vars.$color-white;
+    box-shadow: 0 1rem 2rem rgba(vars.$color-black, 0.15);
+    transform: translateY(-2px);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba(vars.$color-black, 0.15);
+  }
+}

@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as vars;
+
+.composition {
+  position: relative;
+  &__photo {
+    width: 60%; //Always define the width of imahes in percentages to make fluid images
+    box-shadow: 0 1.5rem 4rem rgba(vars.$color-black, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.5s;
+    outline-offset: 1rem;
+
+    &__p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &__p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &__p3 {
+      left: 5rem;
+      top: 10rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid vars.$color-primary;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(vars.$color-black, 0.5);
+      z-index: 20;
+    }
+  }
+  // composiiton:hover composition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.9);
+  }
+}

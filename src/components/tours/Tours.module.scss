@@ -1,0 +1,12 @@
+@use "../../styles/abstracts/variables" as vars;
+@forward "../../styles/base/animations";
+@forward "../../styles/components/button";
+@forward "../../styles/base/typography";
+@forward "../../styles/layout/grid";
+@forward "../../styles/components/card";
+
+.section_tours {
+  background-color: vars.$color-grey-light-1;
+  padding: 20rem 0 15rem;
+  margin-top: -10rem;
+}

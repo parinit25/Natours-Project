@@ -1,0 +1,62 @@
+@use "../abstracts/variables" as vars;
+@forward "../base/utilities";
+
+.heading_primary {
+  backface-visibility: hidden;
+  color: vars.$color-white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  &Main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+  }
+
+  &Sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    animation: moveInRight 2s ease-out;
+  }
+}
+
+.heading_secondary {
+  display: inline-block; // so that background color does not go all the way to horizontal end.
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(
+    to right,
+    vars.$color-primary-light,
+    vars.$color-primary-dark
+  );
+  background-clip: text;
+  color: transparent;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(vars.$color-black, 0.2);
+  }
+}
+
+.heading_tertiary {
+  font-size: vars.$default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: vars.$default-font-size;
+  font-weight: 400;
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

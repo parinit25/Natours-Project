@@ -1,0 +1,110 @@
+@use "../../styles/abstracts/variables" as vars;
+@forward "../../styles/base/animations";
+@forward "../../styles/components/button";
+@forward "../../styles/base/typography";
+@forward "../../styles/layout/grid";
+@forward "../../styles/components/composition";
+@forward "../../styles/components/feature-box";
+
+@keyframes swipeInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveToCorner {
+  0% {
+    opacity: 0;
+    transform: translate(50%, 50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes moveToCornerFromCenter2 {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes moveToCornerFromCenter {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.section_svg {
+  margin-top: -10rem;
+  padding: 20rem 0;
+  height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(vars.$color-primary-light, 0.8),
+    rgba(vars.$color-primary-dark, 0.8)
+  );
+  background-size: cover;
+  overflow: hidden;
+}
+
+.svg_composition {
+  position: relative;
+
+  &_common {
+    position: absolute;
+  }
+}
+
+.background_character_container {
+  animation: swipeInFromLeft 1.5s ease-out;
+  z-index: 1; // Ensure the character and background are above the other SVGs initially
+}
+
+.background_svg {
+  top: 1rem;
+}
+
+.character_svg {
+  right: 15rem;
+  top: 0;
+  z-index: 2; // Ensure the character is above the background
+}
+
+.textMarketing_svg,
+.authentication_svg,
+.notifications_svg {
+  opacity: 0;
+  z-index: 0; // Ensure these SVGs are behind the character initially
+}
+
+.textMarketing_svg {
+  top: -2rem;
+  right: 31rem;
+  animation: moveToCorner 1s ease-out 1.5s forwards; // Start after the character animation
+}
+
+.authentication_svg {
+  top: 23rem;
+  right: -5rem;
+  animation: moveToCornerFromCenter 1s ease-out 1.5s forwards; // Start at the same time as textMarketing
+}
+
+.notifications_svg {
+  top: -2.5rem;
+  right: -4.1rem;
+  animation: moveToCornerFromCenter2 1s ease-out 1.5s forwards; // Start at the same time as textMarketing
+}
